@@ -15,6 +15,7 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var descText: UITextView!
     @IBOutlet weak var priceLabel: UITextField!
+    @IBOutlet weak var idLabel: UITextField!
     var productArray = [Item]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,10 @@ class AddProductViewController: UIViewController {
         let title = titleLabel.text
         let desc = descText.text
         let price = Double(priceLabel.text!)
+        let id = idLabel.text
         
         loadFromCoreData()
-        productArray.append(Item(id: "ac", name: title!, description: desc!, price: price!))
+        productArray.append(Item(id: id!, name: title!, description: desc!, price: price!))
         saveToCoreData()
         navigationController?.popViewController(animated: true)
     }
